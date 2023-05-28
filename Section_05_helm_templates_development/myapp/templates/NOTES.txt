@@ -1,2 +1,8 @@
-Resources:
-  {{- toYaml .Values.resources | nindent 2 }}
+{{- if eq .Values.service.type "ClusterIP" -}}
+  The service type is ClusterIP
+{{- else if eq .Values.service.type "NodePort" -}}
+  The service type is NodePort
+{{ else }}
+  The service type is LoadBalancer
+{{- end -}}
+
