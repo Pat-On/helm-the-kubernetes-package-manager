@@ -297,3 +297,10 @@ Error: UPGRADE FAILED: template: myapp/templates/secret.yaml:9:32: executing "my
       name: {{ .name }}
   {{- end }}   
 ```
+
+## from service.yaml file - inside the loop - used in the case that we want to guard something - example
+```
+  {{- if and (eq ($value.number | int) 8080) (eq $value.name "admin") }}
+  {{- fail "Please ise another port number than 8080 for the admin port " }}
+  {{- end -}}
+```
