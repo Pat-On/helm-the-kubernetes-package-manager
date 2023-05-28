@@ -1,0 +1,27 @@
+# we need to create this file by ourself
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "myapp.fullname" . }}
+data:
+### Solution that map to the single file
+  default.json: |
+{{ .Files.Get "default.json" | indent 4 }}
+
+
+
+# .Files.Glob is returning files and it is depends from us how we want to use it
+{{- /*
+  this is helm's comment. if i will comment it out following yaml fiule
+  helm still would read it and give me error ! 
+ {{ .Files.Glob "config/*" | indent 4 }}
+
+
+ {{ (.Files.Glob "config/*").AsConfig | indent 4 }}
+*/}}
+
+
+
+
+
+
