@@ -38,11 +38,11 @@ spec:
               mountPath: /app/config/default.json
               subPath: default.json
           env:
-            - name: APIKEY
-              valueFrom:
-                secretKeyRef:
-                  name: {{ include "myapp.fullname" . }}
-                  key: APIKEY
+            # - name: APIKEY
+            #   valueFrom:
+            #     secretKeyRef:
+            #       name: {{ include "myapp.fullname" . }}
+            #       key: APIKEY
           ports:
             - name: http
               containerPort: {{ .Values.service.port }}

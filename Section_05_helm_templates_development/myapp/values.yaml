@@ -38,7 +38,25 @@ securityContext: {}
 
 service:
   type: ClusterIP
-  port: 80
+  ports:
+    - number: 80
+      targetPort: http
+      name: http
+    - number: 443
+      targetPort: https
+      name: https
+    - number: 8080
+      targetPort: 8080
+      name: admin
+    - number: 8008
+      targetPort: 8008
+      name: ops    
+
+  # type: ClusterIP
+  # port: 80
+  # ssl_port: 443
+  # ssl_target_port: 443
+  # ssl_name: https
 
 ingress:
   enabled: false
