@@ -60,3 +60,16 @@ Create the name of the service account to use
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}
 {{- end }}
+
+
+{{/*
+    Change the image pull policy accoring to the type of the env
+*/}}
+{{- define "myapp.imagePullPolicy" -}}
+    {{- $environment := default "production" .Values.environment }}
+    {{- if not (eq $environment "production") }}
+        {{- "IfNotPresent" }}
+    {{- else }}
+        {{- "Always"}}
+    {{- end }}
+{{- end }}

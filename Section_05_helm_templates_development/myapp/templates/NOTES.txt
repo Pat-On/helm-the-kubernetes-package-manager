@@ -4,5 +4,10 @@
   The service type is NodePort
 {{ else }}
   The service type is LoadBalancer
-{{- end -}}
+{{- end }}
 
+{{ include "myapp.name" . }}
+
+{{ include "myapp.fullname" . }}
+
+{{ include "myapp.imagePullPolicy" . }}
