@@ -21,7 +21,7 @@ Resources:
 map[limits:map[cpu:100m memory:128Mi] requests:map[cpu:100m memory:128Mi]]
 ```
 
-- any values passed to helm it is proccessed by go and go does not know nothing about yaml
+- any values passed to helm it is processed by go and go does not know nothing about yaml
 - so that is why it is returning map in the first go because go know only about itself types
 
 

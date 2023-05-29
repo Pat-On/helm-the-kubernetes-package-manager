@@ -1,0 +1,9 @@
+# we need to create this file by ourself
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "myapp.fullname" . }}
+data:
+### Solution that map to the single file
+  default.json: |
+{{ .Files.Get "default.json" | indent 4 }}

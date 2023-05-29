@@ -27,7 +27,7 @@ myapp
 
 
 terminal: 
-`helm upgrade myapp01 ./myapp --set apikey="ae6a4f5951msh27a3df229133f1ap18170fjsn98b2735c6782" --set nameOverride=awesome --dry-run`
+`helm upgrade myapp01 ./myapp --set apikey="<APIKEY>" --set nameOverride=awesome --dry-run`
 
 output: `awesome`
 
@@ -55,7 +55,7 @@ If release name contains chart name it will be used as a full name.
 ```
 
 ```
-helm upgrade myapp01 ./myapp --set apikey="ae6a4f5951msh27a3df229133f1ap18170fjsn98b2735c6782" --set fullnameOverride=awesome --dry-run
+helm upgrade myapp01 ./myapp --set apikey="<APIKEY>" --set fullnameOverride=awesome --dry-run
 ```
 
 # why we need to know about the service account name created by the helm?
