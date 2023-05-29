@@ -6,9 +6,11 @@ replicaCount: 1
 
 image:
   repository: afakharany/hellonodejs
-  pullPolicy: IfNotPresent
+  # pullPolicy: IfNotP resent
   # Overrides the image tag whose default is the chart appVersion.
   tag: ""
+
+environment: ""
 
 imagePullSecrets: []
 nameOverride: ""
@@ -51,7 +53,7 @@ service:
     - number: 8008
       targetPort: 8008
       name: ops
-      
+
 
 ingress:
   enabled: false
