@@ -32,7 +32,7 @@ spec:
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
-          imagePullPolicy: {{ include "myapp.imagePullPolicy" . }}
+          imagePullPolicy: {{ include "libpolicy.imagePullPolicy" . }}
           
           # mounting the secrets
           volumeMounts:
