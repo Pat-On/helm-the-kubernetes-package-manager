@@ -1,29 +1,15 @@
-{{- $ports := .Values.service.ports -}}
 apiVersion: v1
 kind: Service
 metadata:
   name: {{ include "myapp.fullname" . }}
   labels:
     {{- include "myapp.labels" . | nindent 4 }}
-  annotations:
-    mainPort: "{{ (index .Values.service.ports 0).number }}"
 spec:
   type: {{ .Values.service.type }}
   ports:
-  {{- range $key, $value := $ports }}
-    - port: {{ .number }}
+    - port: {{ .Values.service.port }}
+      targetPort: http
       protocol: TCP
-      targetPort: {{ .targetPort }}
-      name: {{ .name }}
-  {{- end }}   
-
-    # - port: {{ .Values.service.port }}
-    #   targetPort: http
-    #   protocol: TCP
-    #   name: http
-    #   # added a new port from values.yaml
-    # - port: {{ .Values.service.ssl_port }}
-    #   targatPort: {{ .Values.service.ssl_target_port }}
-    #   name: {{ .Values.service.ssl_name }}
+      name: http
   selector:
     {{- include "myapp.selectorLabels" . | nindent 4 }}
