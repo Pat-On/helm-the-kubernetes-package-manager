@@ -1,15 +1,20 @@
+{{- $ports := .Values.service.ports -}}
 apiVersion: v1
 kind: Service
 metadata:
   name: {{ include "myapp.fullname" . }}
   labels:
     {{- include "myapp.labels" . | nindent 4 }}
+  annotations:
+    mainPort: {{ "(index .$ports 0).number" }}
 spec:
   type: {{ .Values.service.type }}
   ports:
-    - port: {{ .Values.service.port }}
-      targetPort: http
+  {{- range $ports }}
+    - port: {{ .number }}
       protocol: TCP
-      name: http
+      targetPort: {{ .targetPort }}
+      name: {{ .name }}
+    {{- end  }}
   selector:
     {{- include "myapp.selectorLabels" . | nindent 4 }}
