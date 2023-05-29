@@ -11,3 +11,6 @@
 {{ include "myapp.fullname" . }}
 
 {{ include "myapp.imagePullPolicy" . }}
+
+
+{{ .Values.imported.containerPort }}
