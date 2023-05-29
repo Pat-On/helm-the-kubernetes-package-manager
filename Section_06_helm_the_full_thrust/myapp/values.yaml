@@ -95,3 +95,9 @@ nodeSelector: {}
 tolerations: []
 
 affinity: {}
+
+
+# passing variables to the redis
+redis:
+  auth:
+    enabled: false

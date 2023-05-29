@@ -32,3 +32,11 @@ redis:
         enabled: false
 ```
 
+## checking if the redis was really used:
+
+`kubectl exec -it myapp01-redis-master-0 redis-cli`
+
+and then: 
+
+`keys *`
+

@@ -6,4 +6,15 @@ metadata:
 data:
 ### Solution that map to the single file
   default.json: |
-{{ .Files.Get "default.json" | indent 4 }}
+    {
+      "network": {
+        "port": 80
+      },
+      "environment": {
+        "SSL": false
+      }, 
+      "redis": {
+        "server": "{{ .Release.Name }}-redis-master",
+        "port": "6379"
+      }
+    }
