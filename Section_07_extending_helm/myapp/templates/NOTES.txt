@@ -1,0 +1,7 @@
+resources:
+  {{- toYaml .Values.resources | nindent 2 }}
+service: 
+  {{- toYaml .Values.imported.service }}
+
+containerPort: 
+  {{- toYaml .Values.imported.accessModes }}
